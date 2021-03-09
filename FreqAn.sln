@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreqAn", "FreqAn\FreqAn.csproj", "{A3E2D7A0-7407-4D2E-9112-3949F87E4E52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3E2D7A0-7407-4D2E-9112-3949F87E4E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3E2D7A0-7407-4D2E-9112-3949F87E4E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3E2D7A0-7407-4D2E-9112-3949F87E4E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3E2D7A0-7407-4D2E-9112-3949F87E4E52}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3776B084-DF3D-44B9-88FE-7D4F1DD48D10}
+	EndGlobalSection
+EndGlobal
