@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using System.Threading;
-using System.Linq;
 using System.Text;
 
 namespace FreqAn
