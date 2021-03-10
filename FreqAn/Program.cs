@@ -17,12 +17,12 @@ namespace FreqAn
 			Stopwatch SW = new Stopwatch();
 			ConcurrentDictionary<string, int> triplets = new ConcurrentDictionary<string, int>();	// Thread-safe dictionary of trilets; Key is triplet, Value is amount;
 			string path = "text.txt";
-			Console.OutputEncoding = System.Text.Encoding.UTF8;
+			Console.OutputEncoding = Encoding.UTF8;
 
 
 
 			//Get path
-			Console.Write("Default file is \"{0}\". Press enter to continue or set new path. \nPath:", path) ;
+			Console.Write("Default file is \"{0}\". Press enter to continue or set new path. \nPath:", path);
 			string temp = Console.ReadLine();
 			if(temp != "")
 				path = temp;
@@ -51,7 +51,7 @@ namespace FreqAn
 					if (word.Count == 3)															// Since we block all nonletters any triplet is valid
 					{																				
 						string sword = new string(word.ToArray());									// Make string out of queue
-						triplets.AddOrUpdate(sword, 1, (word, oldValue) => oldValue + 1);			// if key is known add 1 to value, if not add key with value of 1
+						triplets.AddOrUpdate(sword, 1, (sword, oldValue) => oldValue + 1);			// if key is known add 1 to value, if not add key with value of 1
 						word.Dequeue();																// remove 1st char to prepare new word
 					}																				
 				}
@@ -66,9 +66,7 @@ namespace FreqAn
 					Console.Write(ans[i].ToString() + (i < ans.Length - 1 && i < 9 ? ", " : ".\n"));
 			}
 			else
-			{
 				Console.WriteLine("File was empty or didn't have any triplets");
-			}
 
 			SW.Stop();
 			Console.WriteLine("{0:F1} ms", SW.Elapsed.TotalMilliseconds);
