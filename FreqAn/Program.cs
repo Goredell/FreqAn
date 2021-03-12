@@ -70,7 +70,7 @@ namespace FreqAn
 			if (temp != "")
 				path = temp;
 
-			while (!File.Exists(path))
+			while (!File.Exists(@path))
 			{
 				Console.WriteLine("Incorrect path, try again.  \nPath:");
 				path = Console.ReadLine();
