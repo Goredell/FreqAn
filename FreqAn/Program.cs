@@ -5,6 +5,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Text;
+using System.Linq;
 
 namespace FreqAn
 {
@@ -44,12 +45,14 @@ namespace FreqAn
 			});
 
 			//Process the answer
-			var ans = triplets.ToArray();
+			var ans = (from tri in triplets
+					   orderby tri.Value descending
+					   select tri)
+					   .Take(10)
+					   .ToArray();
+
 			if (ans != null && ans.Length !=0)
 			{
-				Array.Sort(ans, (x, y) =>
-					y.Value.CompareTo(x.Value));
-
 				for (int i = 0; i < ans.Length && i < 10; i++)
 					Console.Write(ans[i].ToString() + (i < ans.Length - 1 && i < 9 ? ", " : ".\n"));
 			}
