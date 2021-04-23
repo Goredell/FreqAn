@@ -26,20 +26,20 @@ namespace FreqAn
 			//Count triplets using dictionary
 			Parallel.ForEach(File.ReadLines(@path), str =>
 			{
-				Queue<char> word = new Queue<char>();												// works as a coursor in the string
+				var word = new LinkedList<char>();													// works as a coursor in the string
 				foreach (char c in str)																
 				{																					
-					if (!char.IsLetter(c))															// block any non Letter from word and starts word anew if encounters non letter
+					if (!char.IsLetter(c))															// block any non-Letter from word and starts word anew if encounters non-letter
 					{																				
 						word.Clear();																
 						continue;																	
 					}																				
-					word.Enqueue(c);																// Add new char to for new word aka triplet to form a new coursor
+					word.AddLast(c);																// Add new char to for new word aka triplet to form a new coursor
 					if (word.Count == 3)															// Since we block all nonletters any triplet is valid
 					{																				
-						string sword = new string(word.ToArray());									// Make string out of queue
+						string sword = new string(word.ToArray());									
 						triplets.AddOrUpdate(sword, 1, (sword, oldValue) => oldValue + 1);			// if key is known add 1 to value, if not add key with value of 1
-						word.Dequeue();																// remove 1st char to prepare new word
+						word.RemoveFirst();															// remove 1st char to prepare new word
 					}																				
 				}
 			});
@@ -66,8 +66,8 @@ namespace FreqAn
 
 		static public string Validate_Path()
 		{
-			string path = "text.txt";
-			Console.Write("Default file is \"{0}\". Press enter to continue or set new path. \nPath:", path);
+			string path = "save.txt";
+			Console.Write($"Default file is \"path\". Press enter to continue or set new path. \nPath:") ;
 
 			string temp = Console.ReadLine();
 			if (temp != "")
